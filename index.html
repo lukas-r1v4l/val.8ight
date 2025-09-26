@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Lukas Rivaldo Harahap | Mahasiswa Mikroskil</title>
+</head>
+
+<body>
+
+    <div class="background-animation">
+    </div>
+
+    <div class="container">
+        <h1 class="typewriter-text">Val.8ight</h1>
+
+        <div class="profile-image-container">
+            <a href="https://ibb.co.com/PZh4dc0f"><img src="https://i.ibb.co.com/C57vfbDT/lukas-picture.jpg" alt="lukas-picture" border="0"></a>
+        </div>
+
+        <section class="info-section">
+            <h2>Perkenalkan</h2>
+            <ul class="data-list">
+                <li><span class="label">Nama</span> : <span class="value">Lukas Rivaldo Harahap</span></li>
+                <li><span class="label">TTL</span> : <span class="value">Medan, <span id="tanggallahir">06-08-2007</span></span>
+                </li>
+                <li><span class="label">Umur</span> : <span class="value"><span id="umur"></span> tahun</span>
+                </li>
+                <li><span class="label">Warga Negara</span> : <span class="value">Indonesia</span></li>
+                <li><span class="label">Hoby</span> : <span class="value">Design & create a website (Frontend Dev)</span></li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <details class="code-details">
+                <summary>About me : <span class="tag">&lt;Click me!&gt;</span></summary>
+                <p>Saya seorang mahasiswa <strong>Universitas Mikroskil</strong> angkatan tahun 2025 jurusan <strong>Teknik Informatika</strong>. Memilih jurusan tersebut karena bermula dari awal yang sering menggunakan komputer sehingga berminat untuk mengetahui
+                    lebih dalam tentang perkomputeran. Percaya memilih Universitas Mikroskil karena universitas tersebut salah satu Universitas dengan jurusan Teknik Informatika terbaik di kota Medan.
+                </p>
+            </details>
+        </section>
+
+        <a href="https://www.instagram.com/rival.8ight?igsh=MWJ6YXYzamw1ZGZmdA==" class="btn primary-btn">Hubungi Saya di Instagram</a>
+    </div>
+
+    <footer>
+        &copy; 2025 - Val.8ight
+    </footer>
+
+    <script>
+        // hitung umur (Dipertahankan)
+        function hitungUmur() {
+            var tanggalLahirStr = document.getElementById('tanggallahir').textContent;
+            var parts = tanggalLahirStr.split('-');
+            // Perhatian: urutan (tahun, bulan-1, tanggal)
+            var tanggalLahir = new Date(parts[2], parts[1] - 1, parts[0]);
+
+            var sekarang = new Date();
+            var umur = sekarang.getFullYear() - tanggalLahir.getFullYear();
+            var bulanSekarang = sekarang.getMonth();
+            var bulanLahir = tanggalLahir.getMonth();
+
+            if (bulanSekarang < bulanLahir || (bulanSekarang === bulanLahir && sekarang.getDate() < tanggalLahir.getDate())) {
+                umur--;
+            }
+
+            document.getElementById('umur').textContent = umur;
+        }
+
+        window.onload = hitungUmur;
+    </script>
+</body>
+
+</html>
